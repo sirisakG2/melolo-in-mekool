@@ -1,0 +1,39 @@
+# Mecool / Melolo quick command reference
+
+ADB executable:
+/Users/anotai/Desktop/platform-tools/adb
+
+Connect:
+/Users/anotai/Desktop/platform-tools/adb connect IP:DEBUG_PORT
+
+Devices:
+/Users/anotai/Desktop/platform-tools/adb devices
+
+Architecture:
+/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell getprop ro.product.cpu.abilist
+
+Melolo package: com.worldance.drama
+
+Install Melolo 4.9.2:
+cd ~/Desktop/Melolo-4.9.2
+/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT install-multiple com.worldance.drama.apk config.armeabi_v7a.apk config.xxhdpi.apk
+
+Check:
+/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell pm list packages | grep worldance
+
+Launch:
+/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell monkey -p com.worldance.drama 1
+
+LTvLauncher package: com.leanbitlab.ltvL
+
+Install:
+/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT install ~/Desktop/LTvLauncher-armeabi-v7a-release.apk
+
+Launch:
+/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell monkey -p com.leanbitlab.ltvL 1
+
+Remove Melolo:
+/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell pm uninstall com.worldance.drama
+
+Remove LTvLauncher:
+/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell pm uninstall com.leanbitlab.ltvL
