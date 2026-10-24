@@ -8,6 +8,16 @@ What was tried on the Mecool Android TV 14 box and why things work the way they 
   starts Melolo with `getLaunchIntentForPackage`. Android 11+ needs a `<queries>` entry for
   com.worldance.drama to see it.
 
+## Melolo version
+- Melolo moved dramas to a newer "series" format. In 4.9.2 those dramas (and favorites or share
+  links pointing at them) open as a book page with only a "Read" button, or keep loading.
+  Melolo 5.1.6 (last version with an armeabi-v7a split) plays them.
+- A share link (www.melolo.org/s/...) redirects to /page/share-drama?sid=...&vid=...; the page's
+  "Watch in Melolo" button builds https://melolodrama.onelink.me/OgQ9?...&series_id=...&video_id=...
+  The `sid` there is an older id; the real one is `series_id`, and
+  `worldance645713://seriesDetailPage?series_id=<id>` opens the drama page in Melolo.
+- APKMirror stopped offering Melolo downloads at the developer's request (2026); keep a copy.
+
 ## Landscape
 - Melolo's activities request SCREEN_ORIENTATION_PORTRAIT. In a normal (fullscreen) task the
   TV keeps landscape and letterboxes Melolo to 608x1080 in the middle. Wide-format dramas then

@@ -1,6 +1,6 @@
 # Mecool TV add-ons for Melolo
 
-A small tile app that opens the installed Melolo (`com.worldance.drama` 4.9.2) full screen in
+A small tile app that opens the installed Melolo (`com.worldance.drama` 5.1.6) full screen in
 landscape on the Mecool Android TV 14 box. It installs next to Melolo and never modifies it,
 its data or your account. Uninstall it and Melolo is exactly as before. Use a mouse inside Melolo.
 

@@ -26,20 +26,24 @@ adb -s IP:DEBUG_PORT shell getprop ro.product.cpu.abilist
 
 Expected for this setup: armeabi-v7a,armeabi
 
-## 3. Prepare Melolo 4.9.2
-Extract the legitimate Melolo 4.9.2 XAPK into ~/Desktop/Melolo-4.9.2/
+## 3. Prepare Melolo 5.1.6
+Extract the legitimate Melolo 5.1.6 bundle (.apkm is a zip) into ~/Desktop/Melolo-5.1.6/
 
 Required files:
-- com.worldance.drama.apk
-- config.armeabi_v7a.apk
-- config.xxhdpi.apk
+- base.apk
+- split_config.armeabi_v7a.apk
+- split_config.xhdpi.apk
 
-Do not install config.arm64_v8a.apk on this 32-bit device.
+Do not install split_config.arm64_v8a.apk on this 32-bit device. Check the signer first:
+apksigner verify --print-certs base.apk  (expect POLIGON PTE. LTD., SHA-256 358331e8...41fbc)
 
 ## 4. Install Melolo
-cd ~/Desktop/Melolo-4.9.2
+cd ~/Desktop/Melolo-5.1.6
 
-adb -s IP:DEBUG_PORT install-multiple com.worldance.drama.apk config.armeabi_v7a.apk config.xxhdpi.apk
+adb -s IP:DEBUG_PORT install-multiple -r base.apk split_config.armeabi_v7a.apk split_config.xhdpi.apk
+
+(Older fallback, 4.9.2: install-multiple com.worldance.drama.apk config.armeabi_v7a.apk
+config.xxhdpi.apk. Going back from 5.1.6 needs `adb uninstall com.worldance.drama` first.)
 
 Expected result: Success
 
