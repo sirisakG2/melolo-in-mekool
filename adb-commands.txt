@@ -19,9 +19,15 @@ Architecture:
 
 Melolo package: com.worldance.drama
 
-Install Melolo 4.9.2:
-cd ~/Desktop/Melolo-4.9.2
-~/Desktop/platform-tools/adb -s DEVICE install-multiple com.worldance.drama.apk config.armeabi_v7a.apk config.xxhdpi.apk
+Install / update Melolo 5.1.6:
+cd ~/Desktop/Melolo-5.1.6
+~/Desktop/platform-tools/adb -s DEVICE install-multiple -r base.apk split_config.armeabi_v7a.apk split_config.xhdpi.apk
+
+Version check:
+~/Desktop/platform-tools/adb -s DEVICE shell dumpsys package com.worldance.drama | grep versionName
+
+Open a drama by its series id (from a share link's "series_id="):
+~/Desktop/platform-tools/adb -s DEVICE shell am start -a android.intent.action.VIEW -d "'worldance645713://seriesDetailPage?series_id=SERIES_ID'" com.worldance.drama
 
 Check:
 ~/Desktop/platform-tools/adb -s DEVICE shell pm list packages | grep worldance

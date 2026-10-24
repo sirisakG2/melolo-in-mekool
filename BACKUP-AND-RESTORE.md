@@ -5,7 +5,12 @@ owner and how to restore the working setup later.
 
 ## Working files
 
-Melolo:
+Melolo 5.1.6 (working version):
+- base.apk
+- split_config.armeabi_v7a.apk
+- split_config.xhdpi.apk
+
+Melolo 4.9.2 (older fallback):
 - com.worldance.drama.apk
 - config.armeabi_v7a.apk
 - config.xxhdpi.apk
@@ -51,4 +56,7 @@ This setup was tested on a Mecool Android TV 14 device reporting:
 
     armeabi-v7a,armeabi
 
-Do not use the arm64_v8a Melolo split on this device; the earlier 5.4.8 package failed with INSTALL_FAILED_NO_MATCHING_ABIS.
+Do not use the arm64_v8a Melolo split on this device; the 5.4.8 package (arm64 only) failed with INSTALL_FAILED_NO_MATCHING_ABIS.
+
+The current personal backup ZIP holds melolo-5.1.6/ and melolo-4.9.2/ folders; its reinstall.sh installs 5.1.6
+(or 4.9.2 with ./reinstall.sh 4.9.2). The one-command script above is the original 4.9.2 recipe.
