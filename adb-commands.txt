@@ -1,39 +1,66 @@
 # Mecool / Melolo quick command reference
 
 ADB executable:
-/Users/anotai/Desktop/platform-tools/adb
+~/Desktop/platform-tools/adb
+
+Pair (first time, code from the TV's Wireless debugging screen):
+~/Desktop/platform-tools/adb pair IP:PAIRING_PORT PAIRING_CODE
 
 Connect:
-/Users/anotai/Desktop/platform-tools/adb connect IP:DEBUG_PORT
+~/Desktop/platform-tools/adb connect IP:DEBUG_PORT
+or, after pairing, the fixed port:
+~/Desktop/platform-tools/adb connect IP:5555
 
 Devices:
-/Users/anotai/Desktop/platform-tools/adb devices
+~/Desktop/platform-tools/adb devices
 
 Architecture:
-/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell getprop ro.product.cpu.abilist
+~/Desktop/platform-tools/adb -s DEVICE shell getprop ro.product.cpu.abilist
 
 Melolo package: com.worldance.drama
 
 Install Melolo 4.9.2:
 cd ~/Desktop/Melolo-4.9.2
-/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT install-multiple com.worldance.drama.apk config.armeabi_v7a.apk config.xxhdpi.apk
+~/Desktop/platform-tools/adb -s DEVICE install-multiple com.worldance.drama.apk config.armeabi_v7a.apk config.xxhdpi.apk
 
 Check:
-/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell pm list packages | grep worldance
+~/Desktop/platform-tools/adb -s DEVICE shell pm list packages | grep worldance
 
-Launch:
-/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell monkey -p com.worldance.drama 1
+Launch (normal, portrait strip):
+~/Desktop/platform-tools/adb -s DEVICE shell monkey -p com.worldance.drama 1
 
-LTvLauncher package: com.leanbitlab.ltvL
+Freeform windows on (one time, then reboot):
+~/Desktop/platform-tools/adb -s DEVICE shell settings put global enable_freeform_support 1
+~/Desktop/platform-tools/adb -s DEVICE shell settings put global force_resizable_activities 1
+~/Desktop/platform-tools/adb -s DEVICE reboot
 
-Install:
-/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT install ~/Desktop/LTvLauncher-armeabi-v7a-release.apk
+Freeform windows off (then reboot):
+~/Desktop/platform-tools/adb -s DEVICE shell settings delete global enable_freeform_support
+~/Desktop/platform-tools/adb -s DEVICE shell settings delete global force_resizable_activities
 
-Launch:
-/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell monkey -p com.leanbitlab.ltvL 1
+Melolo TV tile package: com.mecool.melolotile
+
+Install / update the tile:
+cd mecool-tv && ./install.sh
+
+Open Melolo full screen through the tile:
+~/Desktop/platform-tools/adb -s DEVICE shell am start -n com.mecool.melolotile/.LaunchActivity
+
+Open Melolo full screen from the Mac (backup):
+cd mecool-tv && ./landscape.sh
+
+Check window mode (freeform = full screen):
+~/Desktop/platform-tools/adb -s DEVICE shell am stack list | grep -B1 worldance
+
+Tile logs:
+~/Desktop/platform-tools/adb -s DEVICE logcat -s MeloloTile
+
+Remove the tile:
+~/Desktop/platform-tools/adb -s DEVICE uninstall com.mecool.melolotile
 
 Remove Melolo:
-/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell pm uninstall com.worldance.drama
+~/Desktop/platform-tools/adb -s DEVICE shell pm uninstall com.worldance.drama
 
-Remove LTvLauncher:
-/Users/anotai/Desktop/platform-tools/adb -s IP:DEBUG_PORT shell pm uninstall com.leanbitlab.ltvL
+LTvLauncher (optional, no longer needed): com.leanbitlab.ltvL
+~/Desktop/platform-tools/adb -s DEVICE install ~/Desktop/LTvLauncher-armeabi-v7a-release.apk
+~/Desktop/platform-tools/adb -s DEVICE shell pm uninstall com.leanbitlab.ltvL

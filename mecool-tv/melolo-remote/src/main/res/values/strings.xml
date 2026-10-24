@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Melolo Remote</string>
+    <string name="service_label">Melolo Remote</string>
+    <string name="service_description">Lets the TV remote control Melolo. Only active while Melolo is open.
+
+Player: Up/Down = previous/next episode, Menu = episode list, OK = show pointer.
+Other screens: D-pad moves a pointer (hold to glide), OK clicks, hold at an edge to scroll.
+Hold OK to switch between player keys and pointer.
+
+Pausing the video needs a real click (air mouse), because this TV box has no touchscreen.</string>
+    <string name="setup_hint">Turn on \"Melolo Remote\" in this list</string>
+</resources>

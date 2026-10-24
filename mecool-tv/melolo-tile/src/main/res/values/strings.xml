@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Melolo TV</string>
+    <string name="not_installed">Melolo (com.worldance.drama) is not installed</string>
+    <string name="landscape_failed">Full-screen landscape unavailable (%1$s). Opening Melolo normally.</string>
+</resources>

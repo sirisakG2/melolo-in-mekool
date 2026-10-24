@@ -1,0 +1,7 @@
+.gradle/
+build/
+local.properties
+*.apk
+
+# Melolo's own icon (from the XAPK) is not redistributed; copy it in locally to build.
+melolo-tile/src/main/res/drawable-nodpi/melolo_icon.png
