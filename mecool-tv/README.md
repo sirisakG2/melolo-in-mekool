@@ -118,7 +118,12 @@ copy both back, then follow *Install*. Melolo itself is backed up separately
 - **The port changed**: Wireless debugging picks a new port after a reboot or toggle. Read it from
   the TV screen and `adb connect` again (pairing is remembered).
 - **Reconnecting after a reboot**: the Mecool also listens on port 5555, so
-  `adb connect 192.168.1.122:5555` works without reading a port off the TV.
+  `adb connect IP:5555` works without reading a port off the TV. The IP changes (it was
+  192.168.1.122, then 192.168.1.126); `adb mdns services` shows the current one.
+- **`unauthorized` in `adb devices`**: accept "Allow USB debugging?" on the TV (Always allow).
+  Android forgets adb permissions after a while, for the Mac and for the tile alike.
+- **Melolo and the tile are gone**: a firmware update reset the box (happened 2026-11-11).
+  Restore from the backup ZIP; see ../BACKUP-AND-RESTORE.md.
 
 ## How it works (for maintenance)
 

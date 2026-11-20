@@ -6,6 +6,9 @@ ADB executable:
 Pair (first time, code from the TV's Wireless debugging screen):
 ~/Desktop/platform-tools/adb pair IP:PAIRING_PORT PAIRING_CODE
 
+Find the Mecool's current IP (it changes):
+~/Desktop/platform-tools/adb mdns services
+
 Connect:
 ~/Desktop/platform-tools/adb connect IP:DEBUG_PORT
 or, after pairing, the fixed port:

@@ -53,6 +53,15 @@ What was tried on the Mecool Android TV 14 box and why things work the way they 
   uninstalled (and `enabled_accessibility_services` restored to the OEM service only) since a
   mouse covers everything. Source kept in `mecool-tv/melolo-remote` for reference.
 
+## Box maintenance
+- The IP is router-assigned and changed (192.168.1.122 to 192.168.1.126). adbd advertises itself
+  over mDNS, so `adb mdns services` finds the box without looking at the TV.
+- Firmware update C1.3.5_20261111 (2026-11-11) reset the box: user-installed apps (Melolo, the
+  tile) and the freeform settings were gone, while the vendor's port 5555 stayed. Restoring from
+  the backup ZIP (5.1.6 + tile + freeform settings + reboot) brought everything back.
+- adb authorizations expire after a period without use. Both the Mac and the tile (whose key was
+  regenerated on reinstall) then need "Allow debugging?" accepted on the TV again.
+
 ## Mac side
 - macOS Local Network privacy can block a tool's process from the LAN ("No route to host"
   while ping works in Terminal). Start the adb server from Terminal; other tools then go

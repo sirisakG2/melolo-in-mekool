@@ -36,6 +36,11 @@ To restore the keystore on a new Mac: copy debug.keystore from the backup to ~/.
 
 ## Restore
 
+Also use this after a Mecool firmware update: the 2026-11-11 update (C1.3.5_20261111) reset the
+box and removed Melolo, the Melolo TV tile and the freeform settings. Restoring took a few
+minutes; afterwards Melolo shows its first-run age/terms screen and you sign in again (favorites
+and history come back from your account).
+
 1. Unzip the personal backup ZIP to ~/Desktop.
 2. Open Terminal in the extracted Melolo-Mecool-Backup folder.
 3. Run:
@@ -45,6 +50,9 @@ To restore the keystore on a new Mac: copy debug.keystore from the backup to ~/.
 4. Enter the Mecool's IP:PORT when prompted (IP:5555 works once the Mac is paired; otherwise
    pair first, see INSTALL.md).
 5. Reboot the Mecool, open **Melolo TV**, accept "Allow debugging?" with "Always allow".
+6. In Melolo, pick your age group, accept the terms and sign in.
+
+Find the Mecool's current IP with `~/Desktop/platform-tools/adb mdns services`.
 
 ## Important
 
