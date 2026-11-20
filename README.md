@@ -16,7 +16,12 @@ Two parts:
 - CPU ABI: armeabi-v7a,armeabi (no 64-bit ABI)
 - Screen: 1920x1080, density 320
 - No touchscreen / faketouch feature
-- adbd also listens on TCP port 5555 (set by the firmware at every boot)
+- adbd also listens on TCP port 5555 (set by the firmware at every boot, still true after the
+  C1.3.5_20261111 firmware update)
+- IP address is assigned by the router and changes (192.168.1.122, later 192.168.1.126); find
+  the current one with `adb mdns services`
+- Firmware updates can reset the box: the 2026-11-11 update (C1.3.5_20261111) removed Melolo,
+  the tile and the freeform settings. Restore from the backup ZIP (BACKUP-AND-RESTORE.md)
 - Melolo package: com.worldance.drama
 - Working Melolo version: 5.1.6 (version code 51617), the newest with a 32-bit armeabi-v7a split
 - Previous working version: 4.9.2 (version code 49217); newer dramas don't play there
@@ -73,6 +78,8 @@ You will see two icons: **Melolo** (the real app, opens as a strip) and **Melolo
 opens the same Melolo full screen). Always use **Melolo TV**.
 
 ## Troubleshooting
+Find the box (IP changes): adb mdns services  (look for adb-<serial> ... IP:5555)
+Melolo or Melolo TV missing after a firmware update: restore from the backup ZIP
 Check architecture: adb -s DEVICE shell getprop ro.product.cpu.abilist
 Check Melolo: adb -s DEVICE shell pm list packages | grep worldance
 Resolve activity: adb -s DEVICE shell cmd package resolve-activity --brief com.worldance.drama

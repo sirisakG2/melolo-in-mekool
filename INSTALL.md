@@ -14,6 +14,13 @@ adb connect IP:DEBUG_PORT
 Once paired, the box also accepts:
 adb connect IP:5555
 
+The IP changes from time to time (router-assigned). Find the current one without the TV:
+adb mdns services
+(the line `adb-<serial>  _adb._tcp  IP:5555` is the Mecool)
+
+If adb shows the box as `unauthorized`, accept "Allow USB debugging?" on the TV (tick
+"Always allow"). Android forgets adb permissions after a while unused.
+
 Verify:
 adb devices
 
