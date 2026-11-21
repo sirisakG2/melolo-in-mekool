@@ -72,6 +72,9 @@ See INSTALL.md.
   The tile opens it that way by itself, also after a reboot.
 - Use a mouse (or the remote's air-mouse mode) inside Melolo. The D-pad can't drive Melolo's
   touch UI well, and this box rejects simulated touches (see LESSONS-LEARNED.md).
+- On-screen keyboard: **AnySoftKeyboard** (F-Droid) with its Thai pack is the default keyboard,
+  because Gboard for TV ignores air-mouse clicks. Gboard stays installed, with Thai added, as a
+  D-pad fallback. Switch with the globe key; see INSTALL.md step 9.
 - Google TV's original launcher was left intact.
 
 You will see two icons: **Melolo** (the real app, opens as a strip) and **Melolo TV** (the tile,

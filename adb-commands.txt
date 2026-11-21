@@ -70,6 +70,12 @@ Remove the tile:
 Remove Melolo:
 ~/Desktop/platform-tools/adb -s DEVICE shell pm uninstall com.worldance.drama
 
+Keyboard (AnySoftKeyboard, accepts air-mouse clicks; Gboard for TV does not):
+~/Desktop/platform-tools/adb -s DEVICE shell ime list -s
+~/Desktop/platform-tools/adb -s DEVICE shell ime set com.menny.android.anysoftkeyboard/.SoftKeyboard
+Back to Gboard:
+~/Desktop/platform-tools/adb -s DEVICE shell ime set com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME
+
 LTvLauncher (optional, no longer needed): com.leanbitlab.ltvL
 ~/Desktop/platform-tools/adb -s DEVICE install ~/Desktop/LTvLauncher-armeabi-v7a-release.apk
 ~/Desktop/platform-tools/adb -s DEVICE shell pm uninstall com.leanbitlab.ltvL
