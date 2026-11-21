@@ -20,6 +20,10 @@ Melolo TV tile:
 - ~/.android/debug.keystore (the key the tile is signed with; updating an installed tile needs
   the same key, otherwise uninstall it first)
 
+Keyboard (AnySoftKeyboard + Thai, works with the air mouse; from F-Droid):
+- com.menny.android.anysoftkeyboard_8175.apk
+- com.anysoftkeyboard.languagepack.thai_6158.apk
+
 LTvLauncher (optional, no longer needed):
 - LTvLauncher-armeabi-v7a-release.apk
 
@@ -66,5 +70,6 @@ This setup was tested on a Mecool Android TV 14 device reporting:
 
 Do not use the arm64_v8a Melolo split on this device; the 5.4.8 package (arm64 only) failed with INSTALL_FAILED_NO_MATCHING_ABIS.
 
-The current personal backup ZIP holds melolo-5.1.6/ and melolo-4.9.2/ folders; its reinstall.sh installs 5.1.6
+The current personal backup ZIP holds melolo-5.1.6/, melolo-4.9.2/ and keyboard/ folders (its
+reinstall.sh also installs AnySoftKeyboard + Thai and makes it the default keyboard); its reinstall.sh installs 5.1.6
 (or 4.9.2 with ./reinstall.sh 4.9.2). The one-command script above is the original 4.9.2 recipe.

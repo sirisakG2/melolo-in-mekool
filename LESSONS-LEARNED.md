@@ -62,6 +62,13 @@ What was tried on the Mecool Android TV 14 box and why things work the way they 
 - adb authorizations expire after a period without use. Both the Mac and the tile (whose key was
   regenerated on reinstall) then need "Allow debugging?" accepted on the TV again.
 
+## Keyboard
+- The built-in keyboard is Gboard for TV. It only had English because "Use system languages" was
+  on and the TV's language is English; Thai is available in its Languages list.
+- Gboard for TV only reacts to the D-pad. Air-mouse clicks move the pointer over it but don't
+  press keys. AnySoftKeyboard (F-Droid, 1.13.8175, with the armeabi-v7a native library) plus its
+  Thai pack accepts clicks; set it as default with `ime set`.
+
 ## Mac side
 - macOS Local Network privacy can block a tool's process from the LAN ("No route to host"
   while ping works in Terminal). Start the adb server from Terminal; other tools then go

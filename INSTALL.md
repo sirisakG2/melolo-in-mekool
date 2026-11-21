@@ -94,15 +94,37 @@ opens full screen every time, including after reboots, without the Mac.
 Do not disable the original Google TV launcher. LTvLauncher is no longer needed; if you keep it,
 note that opening Melolo from it gives the narrow strip (use Melolo TV instead).
 
-## 9. Known limitations
+## 9. Keyboard for the air mouse and Thai
+Gboard for TV (the built-in keyboard) only reacts to the D-pad; air-mouse clicks on its keys do
+nothing. AnySoftKeyboard is a phone-style keyboard that accepts clicks.
+
+Download from F-Droid (open source, built and signed by F-Droid, signer `CN=FDroid`):
+- https://f-droid.org/repo/com.menny.android.anysoftkeyboard_8175.apk (AnySoftKeyboard 1.13.8175, includes armeabi-v7a)
+- https://f-droid.org/repo/com.anysoftkeyboard.languagepack.thai_6158.apk (Thai pack 5.1.6158)
+
+adb -s IP:DEBUG_PORT install com.menny.android.anysoftkeyboard_8175.apk
+adb -s IP:DEBUG_PORT install com.anysoftkeyboard.languagepack.thai_6158.apk
+adb -s IP:DEBUG_PORT shell ime enable com.menny.android.anysoftkeyboard/.SoftKeyboard
+adb -s IP:DEBUG_PORT shell ime set com.menny.android.anysoftkeyboard/.SoftKeyboard
+
+Then on the TV: open AnySoftKeyboard (Apps) > globe tab > Keyboards > switch on Thai.
+Switch English/Thai with the globe key on the keyboard.
+
+Gboard fallback with Thai (D-pad only): Settings > System > Keyboard > Gboard Settings >
+Languages > switch off "Use system languages" > switch on Thai. To go back to Gboard:
+Settings > System > Keyboard > Current keyboard > Gboard.
+
+## 10. Known limitations
 - Use a mouse or the remote's air-mouse mode inside Melolo. The D-pad does not drive Melolo's
   touch UI, and this box (no touchscreen) rejects simulated touches.
 - When the tile has to reopen Melolo (after a reboot, or after leaving Melolo with Back), it takes
   2-3 seconds and Melolo's start screen shows again.
 - force_resizable_activities applies to every app. If another app misbehaves, undo step 5.
 
-## 10. Removal
+## 11. Removal
 adb -s IP:DEBUG_PORT uninstall com.mecool.melolotile
+adb -s IP:DEBUG_PORT uninstall com.anysoftkeyboard.languagepack.thai
+adb -s IP:DEBUG_PORT uninstall com.menny.android.anysoftkeyboard
 adb -s IP:DEBUG_PORT uninstall com.worldance.drama
 adb -s IP:DEBUG_PORT uninstall com.leanbitlab.ltvL
 
